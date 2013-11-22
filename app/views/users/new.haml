@@ -1,0 +1,8 @@
+- provide(:title, '注册帐号')
+%h1 注 册
+.row
+  .span6.offset3
+    = form_for(@user) do |f|
+      = render 'shared/error_messages', object: f.object
+      = render 'fields', f: f
+      = f.submit "创建", class: "btn btn-large btn-primary"

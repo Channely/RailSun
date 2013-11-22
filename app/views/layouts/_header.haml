@@ -1,0 +1,23 @@
+%header.navbar.navbar-fixed-top.navbar-inverse
+  .navbar-inner
+    .container
+      = link_to "广播台", root_path, id: "logo"
+      %nav
+        %ul.nav.pull-right
+          %li= link_to "我家窗台", root_path
+          %li= link_to "帮助", help_path
+          - if signed_in?
+            %li= link_to "广场", users_path
+            %li#fat-menu.dropdown
+              %a.dropdown-toggle{"data-toggle" => "dropdown", :href => "#"}
+                账户
+                %b.caret
+              %ul.dropdown-menu
+                %li= link_to "个人信息", current_user
+                %li= render 'shared/download_file'
+                %li= link_to "设置", edit_user_path(current_user)
+                %li.divider
+                %li
+                  = link_to "退出登录", signout_path, method: "delete"
+          - else
+            %li= link_to "登录网站", signin_path

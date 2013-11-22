@@ -1,0 +1,13 @@
+- @user ||= current_user
+.stats
+  %a{:href => following_user_path(@user)}
+    我关注&nbsp&nbsp&nbsp&nbsp&nbsp
+    </br>
+    %strong#following.stat.text-right
+      </hr>
+      = @user.followed_users.count
+  %a{:href => followers_user_path(@user)}
+    </br>
+    %strong#followers.stat.text-left
+      = @user.followers.count
+    \&nbsp&nbsp&nbsp&nbsp&nbsp关注我
