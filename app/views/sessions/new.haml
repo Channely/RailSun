@@ -3,10 +3,10 @@
 .row
   .span6.offset3
     = form_for(:session, url: sessions_path) do |f|
-      = f.label :email
+      = f.label :email, '家门邮箱'
       = f.text_field :email
-      = f.label :password
+      = f.label :password, "开门密钥"
       = f.password_field :password
       = f.submit "登录", class: "btn btn-large btn-primary"
     %p
-      游客? #{link_to "现在注册.", signup_path}
+      游客? #{link_to "现在登记.", signup_path}
